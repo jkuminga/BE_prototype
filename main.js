@@ -14,9 +14,7 @@ const userRouter = require('./routers/userRouter');
 app.use('/statistics', statisticsRouter);
 app.use('/user', userRouter);
 
-app.use(cors({
-  origin: '*', 
-}));
+app.use(cors());
 
 
 
