@@ -4,6 +4,9 @@ const app = express();
 const bodyParser = require('body-parser')
 const cors = require('cors');
 
+//cors세팅
+app.use(cors());
+
 // bodyParser 세팅
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -13,14 +16,6 @@ const statisticsRouter = require('./routers/statisticsRouter');
 const userRouter = require('./routers/userRouter');
 app.use('/statistics', statisticsRouter);
 app.use('/user', userRouter);
-
-app.use(cors());
-
-
-
-
-//cors세팅
-// app.use(cors());
 
 var port = process.env.PORT
 app.listen(port, ()=>{
