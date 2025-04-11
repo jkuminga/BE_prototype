@@ -23,6 +23,10 @@ router.get('/data/:id', (req, res)=>{
     user.get_user_data(req, res);
 })
 
+router.put('/data', (req, res)=>{
+    user.edit_user_data(req, res);
+})
+
 
 
 module.exports = router;
