@@ -11,5 +11,9 @@ router.post('/login', (req, res)=>{
     user.login(req, res);
 })
 
+router.get('/getuserdata/:id/:name', (req, res)=>{
+    user.get_user_data(req, res);
+})
+
 
 module.exports = router;
