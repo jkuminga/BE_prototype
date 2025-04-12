@@ -17,7 +17,7 @@ const userRouter = require('./routers/userRouter');
 const manageRouter = require('./routers/manageRouter');
 app.use('/statistics', statisticsRouter);
 app.use('/user', userRouter);
-app.use('/manage' , manageRouter);
+app.use('/manage', manageRouter);
 
 var port = process.env.PORT
 app.listen(port, ()=>{
