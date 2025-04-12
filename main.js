@@ -19,9 +19,18 @@ app.use('/statistics', statisticsRouter);
 app.use('/user', userRouter);
 app.use('/manage', manageRouter);
 
-app.get('./',(req,res)=>{
-    res.send('GACHON CS Graduation Project BE SERVER')
+app.get('/',(req,res)=>{
+    const now = new Date();
+    const timestamp = now.toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace('T', ' ');
+
+    res.json({
+        "Gachon Computer Science Graduation Project" : "SERVER",
+        "now" : timestamp
+    })
+    
 })
+
+
 
 var port = process.env.PORT
 app.listen(port, ()=>{
