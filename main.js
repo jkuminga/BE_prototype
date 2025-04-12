@@ -14,8 +14,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 // 라우터 세팅
 const statisticsRouter = require('./routers/statisticsRouter');
 const userRouter = require('./routers/userRouter');
+const manageRouter = require('./routers/manageRouter');
 app.use('/statistics', statisticsRouter);
 app.use('/user', userRouter);
+app.use('/manage' , manageRouter);
 
 var port = process.env.PORT
 app.listen(port, ()=>{
