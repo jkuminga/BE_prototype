@@ -15,6 +15,10 @@ router.post('/find/pw', (req, res)=>{
     manage.find_pw(req, res);
 })
 
+router.get('/errorlogs',(req, res)=>{
+    manage.error_logs(req, res);
+})
+
 
 
 module.exports = router;
