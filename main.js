@@ -3,6 +3,7 @@ require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser')
 const cors = require('cors');
+const db = require('./lib/db');
 
 //cors세팅
 app.use(cors());
@@ -28,6 +29,20 @@ app.get('/',(req,res)=>{
         "now" : timestamp
     })
     
+})
+
+app.get('/ex',(req, res)=>{
+    const now = new Date();
+    const timestamp = now.toLocaleString('sv-SE', { timeZone: 'Asia/Seoul' }).replace('T', ' ');
+    console.log(timestamp);
+    const now2 = new Date(); // 내부적으로 UTC
+    const timestamp2 = now.toISOString().slice(0, 19).replace('T', ' ');
+    console.log(timestamp2);
+
+    db.query('SELECT now()', (error, result)=>{
+        console.log(result);
+        res.send(result);
+    })
 })
 
 
