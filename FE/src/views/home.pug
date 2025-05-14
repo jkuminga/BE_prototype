@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title home
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", href="/public/css/style.css")
+    body 
+        header 
+            h1 Frontend
+        main 
+            button#test test button
+            button#ForceStop 강제 종료
+            button#popupBtn 팝업 출력
+            div#isStart
+                h3 
+                button 시작
+            div#mode
+                h3 
+                button#low 낮음
+                button#mid 보통
+                button#high 높음
+            div#popup.hidden.overlay
+                div.popup-content
+                    h2 경고발생
+                    p 경고 원인
+                    button#closeBtn 닫기
+    script(src="/socket.io/socket.io.js")
+    script(src="/public/js/app.js") 
+    
+
+
