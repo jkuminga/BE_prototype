@@ -1,9 +1,12 @@
 const express = require('express')
+require('dotenv').config();
 const app = express();
 const {Server} = require('socket.io')
 const http = require('http');
 const axios = require('axios'); 
 const bodyParser = require('body-parser')
+const cors = require('cors');
+const db = require('./lib/db');
 
 //cors세팅
 app.use(cors());
