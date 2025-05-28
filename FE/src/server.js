@@ -5,12 +5,25 @@ const http = require('http');
 const axios = require('axios'); 
 const bodyParser = require('body-parser')
 
+//cors세팅
+app.use(cors());
+
 app.use(bodyParser.json());
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'pug');
 
 app.use("/public", express.static(__dirname + "/public"));
+
+// 라우터 세팅
+const statisticsRouter = require('./routers/statisticsRouter');
+const userRouter = require('./routers/userRouter');
+const manageRouter = require('./routers/manageRouter');
+
+
+app.use('/statistics', statisticsRouter);
+app.use('/user', userRouter);
+app.use('/manage', manageRouter);
 
 app.get('/',(req, res)=>{
     res.render('home');
