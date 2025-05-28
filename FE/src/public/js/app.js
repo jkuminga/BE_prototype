@@ -21,6 +21,14 @@ testButton.addEventListener('click', ()=>{
     })
 })
 
+// 모터 작동 테스트
+const motorTestButton = document.querySelector('#motortest');
+
+motorTestButton.addEventListener('click', ()=>{
+    console.log('모터 테스트..')
+    socket.emit('motor test', true);
+})
+
 // 강제 종료
 const forceButton = document.querySelector('#ForceStop');
 

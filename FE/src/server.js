@@ -75,6 +75,14 @@ io.on('connection',(socket)=>{
         })
     })
 
+    // 모터 테스트 용 리스너
+    socket.on('motor test', (cmd)=>{
+        console.log('모터 테스트..')
+        const pythonSocket = sockets.get('python')
+
+        pythonSocket.emit('motor test', cmd);
+    })
+
     // 시작 / 정지 명령용 리스너
     socket.on('running command', (command, done)=>{
         const pythonSocket = sockets.get('python')
