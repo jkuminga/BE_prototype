@@ -1,4 +1,4 @@
-const socket = io({query : { role : 'fe'}});
+const socket = io({query : { role : 'fe2'}});
 
 const divisStart = document.querySelector('#isStart');
 const startBTN = divisStart.querySelector('button');
@@ -28,6 +28,15 @@ motorTestButton.addEventListener('click', ()=>{
     console.log('모터 테스트..')
     socket.emit('motor test', true);
 })
+
+// 경고 전송 테스트
+const warningtestButton = document.querySelector('#warningtest')
+
+warningtestButton.addEventListener('click', ()=>{
+    console.log('경고 전송 테스트..')
+    socket.emit('warning test', 'warning test');
+})
+
 
 // 강제 종료
 const forceButton = document.querySelector('#ForceStop');

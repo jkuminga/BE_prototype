@@ -99,6 +99,19 @@ io.on('connection',(socket)=>{
         pythonSocket.emit('motor test', cmd);
     })
 
+    // 경고 전송 테스트용 리스너 : feP to FE 
+    socket.on('warning test', (test)=>{
+        console.log('경고 전송 테스트...');
+        const fesocket = sockets.get('fe');
+        const warning = {
+            date : Date.now(),
+            type : '경고',
+            reason : '눈 감음'
+        }
+
+        fesocket.emit('warning test', warning);
+    })
+
     // 시작 / 정지 명령용 리스너
     socket.on('running command', (command, done)=>{
         const pythonSocket = sockets.get('python')
@@ -143,7 +156,7 @@ io.on('connection',(socket)=>{
 })
 
 httpServer.listen(3000,()=>{
-    console.log('connected to http://localhost:3000')
+    console.log('connected to port 3000')
 })
 
 
