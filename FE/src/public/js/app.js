@@ -34,7 +34,15 @@ const warningtestButton = document.querySelector('#warningtest')
 
 warningtestButton.addEventListener('click', ()=>{
     console.log('경고 전송 테스트..')
-    socket.emit('warning test', 'warning test');
+    socket.emit('warning test', 'warning');
+})
+
+// 주의 전송 테스트
+const cautiontestButton = document.querySelector('#cautiontest');
+
+cautiontestButton.addEventListener('click', ()=>{
+    console.log('주의 전송 테스트..')
+    socket.emit('warning test', 'cautions')
 })
 
 

@@ -108,8 +108,17 @@ io.on('connection',(socket)=>{
             type : '경고',
             reason : '눈 감음'
         }
-
-        fesocket.emit('warning test', warning);
+        const cautions = {
+            date : Date.now(),
+            type : '주의',
+            reason : '5분간 5회 하품 발생'
+        }
+        if(test === "warning"){
+            fesocket.emit('warning test', warning);
+        }else{
+            fesocket.emit('warning test', cautions);
+        }
+        
     })
 
     // 시작 / 정지 명령용 리스너
