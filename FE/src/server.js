@@ -155,9 +155,9 @@ io.on('connection',(socket)=>{
     })
 })
 
-httpServer.listen(3000,()=>{
-    console.log('connected to port 3000')
+const PORT = process.env.PORT || 3000;
+httpServer.listen(PORT,()=>{
+    console.log(`connected to port ${PORT}`)
 })
-
 
 
