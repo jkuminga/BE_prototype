@@ -127,6 +127,7 @@ io.on('connection',(socket)=>{
 
         console.log('command requested from FE')
         pythonSocket.emit('running command', command)
+        console.log('sent to python', command)
 
         pythonSocket.on('running result', (result)=>{
             done(result)
@@ -139,6 +140,7 @@ io.on('connection',(socket)=>{
         
         const pythonSocket = sockets.get('python') 
         pythonSocket.emit('change mode', mode)
+        
 
         pythonSocket.once('change result',(result)=>{
             console.log('result:', result)
